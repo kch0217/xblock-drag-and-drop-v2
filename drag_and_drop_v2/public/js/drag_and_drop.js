@@ -896,6 +896,10 @@ function DragAndDropBlock(runtime, element, configuration) {
         applyState();
         // Mesure available width.
         containerMaxWidth = $root.width();
+        //check if it gets the wrong width
+        if (containerMaxWidth <=0){
+            containerMaxWidth = parseInt($root.css('max-width').replace(/[^-\d\.]/g, ''));
+        }
         // Re-render now that correct max-width is known.
         applyState();
     };
